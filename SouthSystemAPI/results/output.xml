@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.0 on win32)" generated="20201028 13:25:11.239" rpa="false">
+<suite id="s1" name="TestSiteSicredi" source="D:\joseeduardo\ROBOT\SouthSystemAPI\TestSiteSicredi.robot">
+<kw name="Conectar a minha API" library="ResourceAPI" type="setup">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>sicrediAPI</arg>
+<arg>${URL_API}</arg>
+</arguments>
+<msg timestamp="20201028 13:25:11.423" level="INFO">Creating Session using : alias=sicrediAPI, url=http://5b847b30db24a100142dce1b.mockapi.io/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20201028 13:25:11.423" endtime="20201028 13:25:11.425"></status>
+</kw>
+<status status="PASS" starttime="20201028 13:25:11.423" endtime="20201028 13:25:11.425"></status>
+</kw>
+<test id="s1-t1" name="Buscar um investimento específico">
+<kw name="Requisitar o investimento &quot;1&quot;" library="ResourceAPI">
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>sicrediAPI</arg>
+<arg>v1/simulador</arg>
+</arguments>
+<assign>
+<var>${RESPOSTA}</var>
+</assign>
+<msg timestamp="20201028 13:25:11.762" level="INFO">GET Request : url=http://5b847b30db24a100142dce1b.mockapi.io/api/v1/simulador 
+ path_url=/api/v1/simulador 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20201028 13:25:11.762" level="INFO">GET Response : url=http://5b847b30db24a100142dce1b.mockapi.io/api/v1/simulador 
+ status=200, reason=OK 
+ body={"id":1,"meses":["112","124","136","148"],"valor":["2.802","3.174","3.564","3.971"]} 
+ </msg>
+<msg timestamp="20201028 13:25:11.763" level="INFO">${RESPOSTA} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20201028 13:25:11.426" endtime="20201028 13:25:11.763"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${RESPOSTA.text}</arg>
+</arguments>
+<msg timestamp="20201028 13:25:11.763" level="INFO">{"id":1,"meses":["112","124","136","148"],"valor":["2.802","3.174","3.564","3.971"]}</msg>
+<status status="PASS" starttime="20201028 13:25:11.763" endtime="20201028 13:25:11.763"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${RESPOSTA}</arg>
+</arguments>
+<msg timestamp="20201028 13:25:11.764" level="INFO">${RESPOSTA} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20201028 13:25:11.763" endtime="20201028 13:25:11.764"></status>
+</kw>
+<status status="PASS" starttime="20201028 13:25:11.426" endtime="20201028 13:25:11.764"></status>
+</kw>
+<kw name="Conferir o status code" library="ResourceAPI">
+<arguments>
+<arg>200</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${RESPOSTA.status_code}</arg>
+<arg>${STATUSCODE_DESEJADO}</arg>
+</arguments>
+<msg timestamp="20201028 13:25:11.766" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" starttime="20201028 13:25:11.765" endtime="20201028 13:25:11.766"></status>
+</kw>
+<status status="PASS" starttime="20201028 13:25:11.765" endtime="20201028 13:25:11.766"></status>
+</kw>
+<kw name="Conferir o reason" library="ResourceAPI">
+<arguments>
+<arg>OK</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${RESPOSTA.reason}</arg>
+<arg>${REASON_DESEJADO}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 13:25:11.768" endtime="20201028 13:25:11.768"></status>
+</kw>
+<status status="PASS" starttime="20201028 13:25:11.767" endtime="20201028 13:25:11.769"></status>
+</kw>
+<kw name="Conferir se retorna dados corretos do investimento 1" library="ResourceAPI">
+<kw name="Dictionary Should Contain Item" library="Collections">
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<arguments>
+<arg>${RESPOSTA.json()}</arg>
+<arg>id</arg>
+<arg>${INVESTIMENTO_1.id}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 13:25:11.770" endtime="20201028 13:25:11.771"></status>
+</kw>
+<kw name="Dictionary Should Contain Item" library="Collections">
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<arguments>
+<arg>${RESPOSTA.json()}</arg>
+<arg>meses</arg>
+<arg>${INVESTIMENTO_1.meses}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 13:25:11.772" endtime="20201028 13:25:11.773"></status>
+</kw>
+<kw name="Dictionary Should Contain Item" library="Collections">
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<arguments>
+<arg>${RESPOSTA.json()}</arg>
+<arg>valor</arg>
+<arg>${INVESTIMENTO_1.valor}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 13:25:11.773" endtime="20201028 13:25:11.774"></status>
+</kw>
+<status status="PASS" starttime="20201028 13:25:11.770" endtime="20201028 13:25:11.774"></status>
+</kw>
+<status status="PASS" starttime="20201028 13:25:11.425" endtime="20201028 13:25:11.775" critical="yes"></status>
+</test>
+<doc>Prova técnica de José Eduardo para South System
+utilizando Robot Framework com SeleniumLibrary</doc>
+<status status="PASS" starttime="20201028 13:25:11.241" endtime="20201028 13:25:11.779"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="TestSiteSicredi">TestSiteSicredi</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

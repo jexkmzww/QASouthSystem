@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.0 on win32)" generated="20201028 09:41:20.715" rpa="false">
+<suite id="s1" name="Tests" source="D:\joseeduardo\ROBOT\SouthSystem\tests">
+<suite id="s1-s1" name="TestSiteSicredi" source="D:\joseeduardo\ROBOT\SouthSystem\tests\TestSiteSicredi.robot">
+<test id="s1-s1-t1" name="Aplicação inicial com investimento mensal">
+<kw name="Abrir navegador" library="Resource" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${RESOURCE_BROWSER}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:21.033" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201028 09:41:21.033" endtime="20201028 09:41:24.539"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201028 09:41:24.540" endtime="20201028 09:41:26.715"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:21.033" endtime="20201028 09:41:26.715"></status>
+</kw>
+<kw name="Dado que estou no simulador de investimento" library="Simulador">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${RESOURCE_URL}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:26.717" level="INFO">Opening url 'https://www.sicredi.com.br/html/ferramenta/simulador-investimento-poupanca/'</msg>
+<status status="PASS" starttime="20201028 09:41:26.716" endtime="20201028 09:41:28.684"></status>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>${SIMULADOR_TITTLE}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:28.698" level="INFO">Page title is 'Simulador de investimento - Poupança | Sicredi'.</msg>
+<status status="PASS" starttime="20201028 09:41:28.684" endtime="20201028 09:41:28.698"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:26.716" endtime="20201028 09:41:28.698"></status>
+</kw>
+<kw name="Quando eu aplicar &quot;5.000,00&quot; e poupar &quot;75,00&quot; por &quot;24&quot; meses" library="Simulador">
+<kw name="Informa &quot;${VALOR_APLICAR}&quot;, &quot;${VALOR_POUPAR}&quot; e &quot;${PRAZO_MESES}&quot;" library="Utilitarios">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>${SIMULADOR_RODAPÉ}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:28.704" level="INFO">Executing JavaScript:
+window.scrollTo(0,400)
+Without any arguments.</msg>
+<status status="PASS" starttime="20201028 09:41:28.703" endtime="20201028 09:41:28.724"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_VALORAPLICAR}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 09:41:28.725" endtime="20201028 09:41:28.796"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_VALORAPLICAR}</arg>
+<arg>${VALOR_APLICAR}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:28.797" level="INFO">Typing text '5.000,00' into text field 'xpath=//*[@id="valorAplicar"]'.</msg>
+<status status="PASS" starttime="20201028 09:41:28.796" endtime="20201028 09:41:29.026"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_VALORINVESTIR}</arg>
+<arg>${VALOR_POUPAR}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:29.027" level="INFO">Typing text '75,00' into text field 'xpath=//*[@id="valorInvestir"]'.</msg>
+<status status="PASS" starttime="20201028 09:41:29.026" endtime="20201028 09:41:29.211"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_PRAZO}</arg>
+<arg>${PRAZO}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:29.212" level="INFO">Typing text '24' into text field 'xpath=//*[@id="tempo"]'.</msg>
+<status status="PASS" starttime="20201028 09:41:29.212" endtime="20201028 09:41:29.384"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:28.702" endtime="20201028 09:41:29.385"></status>
+</kw>
+<kw name="Clicar botão SIMULAR" library="Utilitarios">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_BTN_SIMULAR}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:29.386" level="INFO">Clicking button 'xpath=//*[@id="formInvestimento"]//button'.</msg>
+<status status="PASS" starttime="20201028 09:41:29.385" endtime="20201028 09:41:29.534"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:29.385" endtime="20201028 09:41:29.534"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:28.701" endtime="20201028 09:41:29.535"></status>
+</kw>
+<kw name="Então quero ver minha simulação" library="Simulador">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${SIMULADOR_BTN_REFAZERSIMULAÇÃO}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 09:41:29.536" endtime="20201028 09:41:29.818"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:29.535" endtime="20201028 09:41:29.818"></status>
+</kw>
+<kw name="Fechar navegador" library="Resource" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20201028 09:41:29.820" endtime="20201028 09:41:32.045"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:29.819" endtime="20201028 09:41:32.046"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:21.031" endtime="20201028 09:41:32.047" critical="yes"></status>
+</test>
+<test id="s1-s1-t2" name="Aplicação inicial com investimento anual">
+<kw name="Abrir navegador" library="Resource" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${RESOURCE_BROWSER}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:32.052" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201028 09:41:32.052" endtime="20201028 09:41:35.620"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201028 09:41:35.620" endtime="20201028 09:41:37.799"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:32.051" endtime="20201028 09:41:37.799"></status>
+</kw>
+<kw name="Dado que estou no simulador de investimento" library="Simulador">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${RESOURCE_URL}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:37.801" level="INFO">Opening url 'https://www.sicredi.com.br/html/ferramenta/simulador-investimento-poupanca/'</msg>
+<status status="PASS" starttime="20201028 09:41:37.801" endtime="20201028 09:41:39.805"></status>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>${SIMULADOR_TITTLE}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:39.814" level="INFO">Page title is 'Simulador de investimento - Poupança | Sicredi'.</msg>
+<status status="PASS" starttime="20201028 09:41:39.805" endtime="20201028 09:41:39.815"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:37.800" endtime="20201028 09:41:39.815"></status>
+</kw>
+<kw name="Quando eu aplicar &quot;5.000,00&quot; e poupar &quot;75,00&quot; por &quot;10&quot; anos" library="Simulador">
+<kw name="Informa &quot;${VALOR_APLICAR}&quot;, &quot;${VALOR_POUPAR}&quot; e &quot;${PRAZO_ANOS}&quot;" library="Utilitarios">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>${SIMULADOR_RODAPÉ}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:39.818" level="INFO">Executing JavaScript:
+window.scrollTo(0,400)
+Without any arguments.</msg>
+<status status="PASS" starttime="20201028 09:41:39.817" endtime="20201028 09:41:39.833"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_VALORAPLICAR}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 09:41:39.834" endtime="20201028 09:41:39.884"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_VALORAPLICAR}</arg>
+<arg>${VALOR_APLICAR}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:39.885" level="INFO">Typing text '5.000,00' into text field 'xpath=//*[@id="valorAplicar"]'.</msg>
+<status status="PASS" starttime="20201028 09:41:39.884" endtime="20201028 09:41:40.069"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_VALORINVESTIR}</arg>
+<arg>${VALOR_POUPAR}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:40.070" level="INFO">Typing text '75,00' into text field 'xpath=//*[@id="valorInvestir"]'.</msg>
+<status status="PASS" starttime="20201028 09:41:40.070" endtime="20201028 09:41:40.257"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_PRAZO}</arg>
+<arg>${PRAZO}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:40.258" level="INFO">Typing text '10' into text field 'xpath=//*[@id="tempo"]'.</msg>
+<status status="PASS" starttime="20201028 09:41:40.257" endtime="20201028 09:41:40.419"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:39.817" endtime="20201028 09:41:40.419"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_COMBOBOX_PRAZO}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:40.420" level="INFO">Clicking element 'xpath=//*[@id="formInvestimento"]//span[4]'.</msg>
+<status status="PASS" starttime="20201028 09:41:40.419" endtime="20201028 09:41:40.569"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${SIMULADOR_SELECIONA_PRAZO_ANOS}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 09:41:40.569" endtime="20201028 09:41:40.849"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_SELECIONA_PRAZO_ANOS}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:40.849" level="INFO">Clicking element 'xpath=//*[@id="formInvestimento"]//li[2]/a'.</msg>
+<status status="PASS" starttime="20201028 09:41:40.849" endtime="20201028 09:41:40.957"></status>
+</kw>
+<kw name="Clicar botão SIMULAR" library="Utilitarios">
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks the button identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_BTN_SIMULAR}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:40.958" level="INFO">Clicking button 'xpath=//*[@id="formInvestimento"]//button'.</msg>
+<status status="PASS" starttime="20201028 09:41:40.958" endtime="20201028 09:41:41.091"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:40.957" endtime="20201028 09:41:41.091"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:39.816" endtime="20201028 09:41:41.092"></status>
+</kw>
+<kw name="Então quero ver minha simulação" library="Simulador">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${SIMULADOR_BTN_REFAZERSIMULAÇÃO}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 09:41:41.093" endtime="20201028 09:41:41.375"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:41.092" endtime="20201028 09:41:41.375"></status>
+</kw>
+<kw name="Fechar navegador" library="Resource" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20201028 09:41:41.376" endtime="20201028 09:41:43.832"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:41.376" endtime="20201028 09:41:43.832"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:32.050" endtime="20201028 09:41:43.833" critical="yes"></status>
+</test>
+<test id="s1-s1-t3" name="Aplicação inicial menor que R$ 20,00">
+<kw name="Abrir navegador" library="Resource" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${RESOURCE_BROWSER}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:43.837" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201028 09:41:43.836" endtime="20201028 09:41:47.335"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201028 09:41:47.336" endtime="20201028 09:41:49.506"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:43.836" endtime="20201028 09:41:49.506"></status>
+</kw>
+<kw name="Dado que estou no simulador de investimento" library="Simulador">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${RESOURCE_URL}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:49.507" level="INFO">Opening url 'https://www.sicredi.com.br/html/ferramenta/simulador-investimento-poupanca/'</msg>
+<status status="PASS" starttime="20201028 09:41:49.507" endtime="20201028 09:41:50.288"></status>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>${SIMULADOR_TITTLE}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:50.297" level="INFO">Page title is 'Simulador de investimento - Poupança | Sicredi'.</msg>
+<status status="PASS" starttime="20201028 09:41:50.289" endtime="20201028 09:41:50.297"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:49.507" endtime="20201028 09:41:50.297"></status>
+</kw>
+<kw name="Quando eu aplicar &quot;19,99&quot;" library="Simulador">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>${SIMULADOR_RODAPÉ}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:50.299" level="INFO">Executing JavaScript:
+window.scrollTo(0,400)
+Without any arguments.</msg>
+<status status="PASS" starttime="20201028 09:41:50.298" endtime="20201028 09:41:50.312"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_VALORAPLICAR}</arg>
+<arg>${VALOR_APLICAR}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:50.313" level="INFO">Typing text '19,99' into text field 'xpath=//*[@id="valorAplicar"]'.</msg>
+<status status="PASS" starttime="20201028 09:41:50.312" endtime="20201028 09:41:50.618"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_VALORINVESTIR}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:50.619" level="INFO">Clicking element 'xpath=//*[@id="valorInvestir"]'.</msg>
+<status status="PASS" starttime="20201028 09:41:50.618" endtime="20201028 09:41:50.742"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:50.298" endtime="20201028 09:41:50.742"></status>
+</kw>
+<kw name="Então a mensagem &quot;Valor mínimo de 20.00&quot; deve ser exebida" library="Simulador">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${SIMULADOR_VALORAPLICARERROR}' == '${VALOR_MINIMO}'</arg>
+<arg>Log</arg>
+<arg>${VALOR_MINIMO}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 09:41:50.744" endtime="20201028 09:41:50.744"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${SIMULADOR_VALORINVESTIRERROR}' == '${VALOR_MINIMO}'</arg>
+<arg>Log</arg>
+<arg>${VALOR_MINIMO}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 09:41:50.744" endtime="20201028 09:41:50.745"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:50.743" endtime="20201028 09:41:50.745"></status>
+</kw>
+<kw name="Fechar navegador" library="Resource" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20201028 09:41:50.746" endtime="20201028 09:41:52.971"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:50.745" endtime="20201028 09:41:52.972"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:43.835" endtime="20201028 09:41:52.973" critical="yes"></status>
+</test>
+<test id="s1-s1-t4" name="Investimento menor que R$ 20,00">
+<kw name="Abrir navegador" library="Resource" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${RESOURCE_BROWSER}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:52.978" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201028 09:41:52.978" endtime="20201028 09:41:56.843"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201028 09:41:56.843" endtime="20201028 09:41:59.017"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:52.977" endtime="20201028 09:41:59.017"></status>
+</kw>
+<kw name="Dado que estou no simulador de investimento" library="Simulador">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${RESOURCE_URL}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:59.020" level="INFO">Opening url 'https://www.sicredi.com.br/html/ferramenta/simulador-investimento-poupanca/'</msg>
+<status status="PASS" starttime="20201028 09:41:59.019" endtime="20201028 09:41:59.846"></status>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>${SIMULADOR_TITTLE}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:59.854" level="INFO">Page title is 'Simulador de investimento - Poupança | Sicredi'.</msg>
+<status status="PASS" starttime="20201028 09:41:59.847" endtime="20201028 09:41:59.855"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:59.019" endtime="20201028 09:41:59.855"></status>
+</kw>
+<kw name="Quando eu poupar &quot;19,99&quot;" library="Simulador">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>${SIMULADOR_RODAPÉ}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:59.856" level="INFO">Executing JavaScript:
+window.scrollTo(0,400)
+Without any arguments.</msg>
+<status status="PASS" starttime="20201028 09:41:59.856" endtime="20201028 09:41:59.866"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_VALORINVESTIR}</arg>
+<arg>${VALOR_POUPAR}</arg>
+</arguments>
+<msg timestamp="20201028 09:41:59.867" level="INFO">Typing text '19,99' into text field 'xpath=//*[@id="valorInvestir"]'.</msg>
+<status status="PASS" starttime="20201028 09:41:59.866" endtime="20201028 09:42:00.114"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_VALORAPLICAR}</arg>
+</arguments>
+<msg timestamp="20201028 09:42:00.115" level="INFO">Clicking element 'xpath=//*[@id="valorAplicar"]'.</msg>
+<status status="PASS" starttime="20201028 09:42:00.114" endtime="20201028 09:42:00.299"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:59.855" endtime="20201028 09:42:00.299"></status>
+</kw>
+<kw name="Então a mensagem &quot;Valor mínimo de 20.00&quot; deve ser exebida" library="Simulador">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${SIMULADOR_VALORAPLICARERROR}' == '${VALOR_MINIMO}'</arg>
+<arg>Log</arg>
+<arg>${VALOR_MINIMO}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 09:42:00.300" endtime="20201028 09:42:00.300"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${SIMULADOR_VALORINVESTIRERROR}' == '${VALOR_MINIMO}'</arg>
+<arg>Log</arg>
+<arg>${VALOR_MINIMO}</arg>
+</arguments>
+<status status="PASS" starttime="20201028 09:42:00.301" endtime="20201028 09:42:00.301"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:42:00.300" endtime="20201028 09:42:00.301"></status>
+</kw>
+<kw name="Fechar navegador" library="Resource" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20201028 09:42:00.302" endtime="20201028 09:42:02.784"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:42:00.301" endtime="20201028 09:42:02.785"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:41:52.976" endtime="20201028 09:42:02.786" critical="yes"></status>
+</test>
+<test id="s1-s1-t5" name="Poupar com tempo igual a 0">
+<kw name="Abrir navegador" library="Resource" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${RESOURCE_BROWSER}</arg>
+</arguments>
+<msg timestamp="20201028 09:42:02.794" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20201028 09:42:02.793" endtime="20201028 09:42:06.393"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20201028 09:42:06.393" endtime="20201028 09:42:08.568"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:42:02.791" endtime="20201028 09:42:08.568"></status>
+</kw>
+<kw name="Dado que estou no simulador de investimento" library="Simulador">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${RESOURCE_URL}</arg>
+</arguments>
+<msg timestamp="20201028 09:42:08.570" level="INFO">Opening url 'https://www.sicredi.com.br/html/ferramenta/simulador-investimento-poupanca/'</msg>
+<status status="PASS" starttime="20201028 09:42:08.569" endtime="20201028 09:42:09.444"></status>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that the current page title equals ``title``.</doc>
+<arguments>
+<arg>${SIMULADOR_TITTLE}</arg>
+</arguments>
+<msg timestamp="20201028 09:42:09.455" level="INFO">Page title is 'Simulador de investimento - Poupança | Sicredi'.</msg>
+<status status="PASS" starttime="20201028 09:42:09.444" endtime="20201028 09:42:09.455"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:42:08.569" endtime="20201028 09:42:09.455"></status>
+</kw>
+<kw name="Quando eu informar tempo &quot;0&quot;" library="Simulador">
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>${SIMULADOR_RODAPÉ}</arg>
+</arguments>
+<msg timestamp="20201028 09:42:09.458" level="INFO">Executing JavaScript:
+window.scrollTo(0,400)
+Without any arguments.</msg>
+<status status="PASS" starttime="20201028 09:42:09.457" endtime="20201028 09:42:09.472"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_PRAZO}</arg>
+<arg>${PRAZO}</arg>
+</arguments>
+<msg timestamp="20201028 09:42:09.473" level="INFO">Typing text '0' into text field 'xpath=//*[@id="tempo"]'.</msg>
+<status status="PASS" starttime="20201028 09:42:09.472" endtime="20201028 09:42:09.797"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${SIMULADOR_INPUT_VALORINVESTIR}</arg>
+</arguments>
+<msg timestamp="20201028 09:42:09.798" level="INFO">Clicking element 'xpath=//*[@id="valorInvestir"]'.</msg>
+<status status="PASS" starttime="20201028 09:42:09.797" endtime="20201028 09:42:09.976"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:42:09.456" endtime="20201028 09:42:09.976"></status>
+</kw>
+<kw name="Então a mensagem &quot;Valor esperado não confere&quot; deve existir" library="Simulador">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>${SIMULADOR_TEMPOERROR}</arg>
+</arguments>
+<msg timestamp="20201028 09:42:10.017" level="INFO">Current page contains element 'xpath=//*[@id="tempo-error"]'.</msg>
+<status status="PASS" starttime="20201028 09:42:09.977" endtime="20201028 09:42:10.017"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:42:09.977" endtime="20201028 09:42:10.017"></status>
+</kw>
+<kw name="Fechar navegador" library="Resource" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20201028 09:42:10.018" endtime="20201028 09:42:13.768"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:42:10.018" endtime="20201028 09:42:13.769"></status>
+</kw>
+<status status="PASS" starttime="20201028 09:42:02.789" endtime="20201028 09:42:13.770" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20201028 09:41:20.751" endtime="20201028 09:42:13.775"></status>
+</suite>
+<status status="PASS" starttime="20201028 09:41:20.718" endtime="20201028 09:42:13.790"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0">Critical Tests</stat>
+<stat pass="5" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="0" id="s1" name="Tests">Tests</stat>
+<stat pass="5" fail="0" id="s1-s1" name="TestSiteSicredi">Tests.TestSiteSicredi</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
