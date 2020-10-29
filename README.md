@@ -10,6 +10,7 @@ Obs.: Necessário ter o python instalado na máquina.
 # Para instalar as libraries utilizadas nos testes, usar os comandos:
 
 pip install robotframework-selenium2library
+
 pip install robotframework-requests
 
 Obs.: A library Collections é importada ao se instalar o robot framework.
